@@ -26,7 +26,7 @@
 
 ## About The Project
 
-![screenshot](Screenshot.png)
+![gif](./assets/readme_generator.gif)
 
 README Generator!
 
