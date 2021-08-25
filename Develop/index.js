@@ -15,7 +15,7 @@ inquirer
             type: 'input',
             message: 'Please give a brief description of the project',
             name: 'description'
-        }
+        },
         {
             type: 'input',
             message: 'What are the installation steps?',
@@ -24,24 +24,28 @@ inquirer
         },
         {
             type: 'input',
+            message: 'What are useful examples of how this project can be used?',
+            name: 'usage',
+
+        },
+        {
+            type: 'checkbox',
+            message: 'What license would you like to use?',
+            choices: ['MIT', 'IBM', 'Mozilla', 'Apache'],
+            name: 'license',
+        },
+        {
+            type: 'input',
             message: 'What is your GitHub username?',
             name: 'username',
 
         },
         {
-            type: 'checkbox',
-            message: 'What languages do you know?',
-            name: 'languages',
-            choices: ['Javascript', 'HTML', 'CSS', 'Node']
-
+            type: 'input',
+            message: 'What is your email address?',
+            name: 'email',
         },
-        {
-            type: 'list',
-            message: 'What is your preferred method of communication?',
-            name: 'preference',
-            choices: ['Javascript', 'HTML', 'CSS', 'Node']
-
-        }
+        
 
     ])
     .then((response) => {
