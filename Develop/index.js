@@ -12,7 +12,7 @@ const promptUser = () => {
         {
             type: 'input',
             message: 'What is the name of your Project?',
-            name: 'Project',
+            name: 'project',
 
         },
         {
@@ -90,13 +90,13 @@ const writeToFile = (response) =>
 
 ## About The Project
 
-${response.name}
+${response.project}
 ${response.description}
 
 ### Built With
-<li>
+
 ${response.build}
-</li>
+
 
 <!-- GETTING STARTED -->
 ## Getting Started
