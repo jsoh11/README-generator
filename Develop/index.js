@@ -1,7 +1,7 @@
 // TODO: Include packages needed for this application
 const inquirer = require('inquirer');
 const fs = require('fs');
-
+const renderLicenseSection = require('./utils/generateMarkdown')
 // TODO: Create an array of questions for user input
 
 
@@ -39,7 +39,7 @@ const promptUser = () => {
 
         },
         {
-            type: 'checkbox',
+            type: 'list',
             message: 'What license would you like to use?',
             choices: ['MIT', 'IBM', 'Mozilla', 'Apache'],
             name: 'license',
@@ -117,9 +117,7 @@ This is an example of how to list things you need to use the software and how to
 
 ${response.usage}
 
-## License
-
-${response.license}
+${renderLicenseSection(response.license)}
 
 ## Contact
 
