@@ -5,9 +5,9 @@ const fs = require('fs');
 // TODO: Create an array of questions for user input
 
 
-const promptUser =() => {
+const promptUser = () => {
 
-return inquirer.prompt([
+   return inquirer.prompt([
 
         {
             type: 'input',
@@ -19,6 +19,12 @@ return inquirer.prompt([
             type: 'input',
             message: 'Please give a brief description of the project',
             name: 'description',
+        },
+        {
+            type: 'checkbox',
+            message: 'What major frameworks did you build your project with?',
+            choices: ['HTML', 'CSS', 'JavaScript','Node.js'],
+            name: 'build',
         },
         {
             type: 'input',
@@ -53,9 +59,9 @@ return inquirer.prompt([
 
     ])
 }
-    
+
 // TODO: Create a function to write README file
-function writeToFile(response) {
+const writeToFile = (response) => 
     `<details open="open">
 <summary><h2 style="display: inline-block">Table of Contents</h2></summary>
 <ol>
@@ -88,7 +94,9 @@ ${response.name}
 ${response.description}
 
 ### Built With
-
+<li>
+${response.build}
+</li>
 
 <!-- GETTING STARTED -->
 ## Getting Started
@@ -117,33 +125,29 @@ ${response.license}
 
 Email: ${response.email}
 
-Project Link:
-
-
-
 
 ## Acknowledgements
 
-* [othneildrew README template](https://github.com/othneildrew/Best-README-Template)`}
+* [othneildrew README template](https://github.com/othneildrew/Best-README-Template)`
 
 // TODO: Create a function to initialize app
-// function init() {    
-//     promptUser()
-//     .then((response) => {
-//     console.log(response)
-//     fs.writeFile('README.md', writeToFile(response), (err) =>
-//         err ? console.error(err) : console.log('Success!')
-//     );
-
-// }
-
-// );
-// }
-const init = () => {
+const init = () => {    
     promptUser()
-      .then((response) => fs.writeFile('README.md', writeToFile(response)))
-      .then(() => console.log('Successfully wrote to README.md!'))
-      .catch((err) => console.error(err));
+    .then((response) => {
+    console.log(response)
+    fs.writeFile('README.md', writeToFile(response), (err) =>
+        err ? console.error(err) : console.log('Success!')
+    );
+
 }
+
+);
+}
+// const init = () => {
+//     promptUser()
+//         .then((response) => fs.writeFile('README.md', writeToFile(response)))
+//         .then(() => console.log('Successfully wrote to README.md!'))
+//         .catch((err) => console.error(err));
+
 // Function call to initialize app
 init();
